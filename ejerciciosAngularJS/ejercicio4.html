@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AngularJS Directives and Data Binding</title>
+</head>
+<body>
+    <div data-ng-controller="SimpleController">
+        Name:
+        <br/>
+        <input type="text" data-ng-model="name" /> 
+        <br/>
+        <ul>
+        	<li ng-repeat= "superhero in superheros | filter:name | orderBy:'city'">
+                                {{ superhero.name | uppercase }} - 
+                                {{ superhero.city | lowercase }}
+            </li>
+        </ul>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+
+    <script>
+        function SimpleController($scope) {
+            $scope.superheros = [       
+                            { name:'Batman',city:'Gotham' }, 
+                            { name:'Superman', city:'Metropolis' }, 
+                            { name:'Arrow', city:'Star City' }, 
+                            { name:'Wonder woman',city:'Amazonas' }, 
+                            { name:'Black Canary', city:'Star City' }];
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html data-ng-app="">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AngularJS Directives and Data Binding</title>
+
+
+</head>
+<body data-ng-init="names=['Batman','Superman', 'Arrow', 'Wonder woman','Black Canary']">
+    Name:
+    <br/>
+    <input type="text" data-ng-model="name" /> {{ name }}
+    <br/>
+    <ul>
+    	<li ng-repeat="personName in names">{{ personName}}</li>
+    </ul>
+
+
+
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
+
+</body>
+</html>
