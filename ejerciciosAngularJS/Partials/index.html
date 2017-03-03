@@ -11,7 +11,8 @@
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>-->
 
     <script>
         var demoApp = angular.module('demoApp', ['ngRoute']);
@@ -30,7 +31,7 @@
                        controller: 'SimpleController',
                        templateUrl: 'view2.html' 
                     })
-                .otherwise({ rediretTo: '/view1' });
+                .otherwise({ redirectTo: '/view1' });
 
         });
 
