@@ -6,7 +6,7 @@
 
 
 </head>
-<body>
+<body data-ng-init= "superheros=[{name:'Batman',city:'Gotham'}, {name:'Superman', city:'Metropolis'}, {name:'Arrow', city:'Star City'}, {name:'Wonder woman',city:'Amazonas'}, {name:'Black Canary', city:'Star City'}]">
 
     Name:
     <br/>
@@ -19,17 +19,6 @@
 
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.2/angular.min.js"></script>
-
-    <script>
-        function SimpleController($scope) {
-            $scope.superheros=[
-                            {name:'Batman',city:'Gotham'}, 
-                            {name:'Superman', city:'Metropolis'}, 
-                            {name:'Arrow', city:'Star City'}, 
-                            {name:'Wonder woman',city:'Amazonas'}, 
-                            {name:'Black Canary', city:'Star City'}];
-        }
-    </script>
 
 </body>
 </html>
