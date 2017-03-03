@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html ng-app="demoApp">
+<head>
+    <meta charset="UTF-8">
+    <title>Using AngularJS Directives and Data Binding</title>
+</head>
+<body>
+    <div>
+        <!-- Placeholder for views -->
+        <div ng-view></div>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+    <script>
+        var demoApp = angular.module('demoApp', ['ngRoute']);
+
+        //defining routes
+        demoApp.config(function ($routeProvider) {
+            $routeProvider
+                .when('/view1',
+                    {   
+                        controller: 'SimpleController',
+                        templateUrl: 'view1.html'
+
+                    })
+                .when('/view2',
+                    {
+                       controller: 'SimpleController',
+                       templateUrl: 'view2.html' 
+                    })
+                .otherwise({ rediretTo: '/view1' });
+
+        });
+
+        demoApp.controller('SimpleController', function ($scope) {
+            $scope.superheros = [ 
+                            { name:'Batman',city:'Gotham' }, 
+                            { name:'Superman', city:'Metropolis' }, 
+                            { name:'Arrow', city:'Star City' }, 
+                            { name:'Wonder woman',city:'Amazonas' }, 
+                            { name:'Black Canary', city:'Star City' }
+            ];
+
+            $scope.addSuperhero = function () {
+                $scope.superheros.push(
+                            { 
+                                name: $scope.newSuperhero.name, 
+                                city: $scope.newSuperhero.city 
+                            });
+            };
+        });
+
+    </script>
+</body>
+</html>
