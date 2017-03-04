@@ -35,8 +35,10 @@
 
         });
 
-        demoApp.controller('SimpleController', function ($scope) {
-            $scope.superheros = [ 
+        //defining factory
+        demoApp.factory('simpleFactory', function (){
+
+            var superheros = [ 
                             { name:'Batman',city:'Gotham' }, 
                             { name:'Superman', city:'Metropolis' }, 
                             { name:'Arrow', city:'Star City' }, 
@@ -44,6 +46,26 @@
                             { name:'Black Canary', city:'Star City' }
             ];
 
+            var factory = {};
+            factory.getSuperheros = function () {
+                return superheros;
+            };
+            factory.postSuperhero = function (superhero) {
+
+            };
+
+            factory.caca = superheros;
+
+            return factory;
+
+        });
+
+        demoApp.controller('SimpleController', ['$scope','simpleFactory', function ($scope, simpleFactory) {
+            console.log(simpleFactory.getSuperheros());
+            $scope.superheros = simpleFactory.getSuperheros(); 
+
+            
+                
             $scope.addSuperhero = function () {
                 $scope.superheros.push(
                             { 
@@ -51,7 +73,7 @@
                                 city: $scope.newSuperhero.city 
                             });
             };
-        });
+        }]);
 
     </script>
 </body>
